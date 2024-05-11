@@ -1,17 +1,16 @@
 import joi from 'joi';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export interface DbConfig {
-  mongoUrl: string;
   mongoDbName: string;
 }
 
 const schema = joi.object({
-  mongoUrl: joi.string().required(),
   mongoDbName: joi.string().required(),
 });
 
 const createConfig = (env: any): DbConfig => ({
-  mongoUrl: env.MONGO_URL,
   mongoDbName: env.MONGO_DB_NAME,
 });
 
