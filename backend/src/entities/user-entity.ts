@@ -10,9 +10,9 @@ export class UserEntity extends BaseEntity {
   password: String = new String();
 
   @Property({ type: 'boolean', default: false })
-  activated: boolean = false;
+  activated: boolean;
 
-  constructor(username: string, password: string, activated: boolean) {
+  constructor(username: string, password: string, activated: boolean = false) {
     super();
     this.username = username;
     this.password = password;
