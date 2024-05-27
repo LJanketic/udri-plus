@@ -4,18 +4,18 @@ import { BaseEntity } from './base-entity';
 @Entity()
 export class UserEntity extends BaseEntity {
   @Property()
-  username: string;
+  email!: string;
 
   @Property()
-  password: String = new String();
+  username!: string;
 
-  @Property({ type: 'boolean', default: false })
-  activated: boolean;
+  @Property()
+  password!: string;
 
-  constructor(username: string, password: string, activated: boolean = false) {
+  constructor(email: string, username: string, password: string) {
     super();
+    this.email = email;
     this.username = username;
     this.password = password;
-    this.activated = activated;
   }
 }
