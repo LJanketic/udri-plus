@@ -14,8 +14,6 @@
   "dependencies": {
     "@mikro-orm/cli": "6.2.5",
     "@mikro-orm/core": "6.2.5",
-    "@mikro-orm/mongo-highlighter": "1.0.0",
-    "@mikro-orm/mongodb": "6.2.5",
     "@types/node": "20.12.11",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
