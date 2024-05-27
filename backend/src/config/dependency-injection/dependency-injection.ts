@@ -5,10 +5,9 @@ import {
   EntityManager,
   RequestContext,
   EntityRepository,
-} from '@mikro-orm/mongodb';
+} from '@mikro-orm/postgresql';
 import mikroOrmConfig from '../mikro-orm/mikro-orm.config';
 import { UserEntity } from '../../entities';
-import UserRoutes from '../../routes/user-routes';
 
 export const DependencyInjection = {} as {
   server: http.Server;
@@ -34,10 +33,6 @@ const setupRepositories = (): void => {
     DependencyInjection.orm.em.getRepository(UserEntity);
 };
 
-const setupRoutes = (app: express.Application): void => {
-  app.use('/api/users', UserRoutes);
-};
-
 export const initializeDependencyInjection = async (
   app: express.Application
 ): Promise<void> => {
@@ -48,8 +43,6 @@ export const initializeDependencyInjection = async (
     console.log('Middleware setup completed successfully');
     setupRepositories();
     console.log('Repository setup completed successfully');
-    setupRoutes(app);
-    console.log('Routes setup completed successfully');
   } catch (error) {
     console.error('Application initialization failed:', error);
   }
