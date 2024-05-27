@@ -4,13 +4,13 @@ import { BaseEntity } from './base-entity';
 @Entity()
 export class UserEntity extends BaseEntity {
   @Property()
-  email!: string;
+  email: string;
 
   @Property()
-  username!: string;
+  username: string;
 
   @Property()
-  password!: string;
+  password: string;
 
   constructor(email: string, username: string, password: string) {
     super();
