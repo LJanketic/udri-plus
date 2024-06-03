@@ -1,7 +1,5 @@
 import { Entity, Property, ManyToOne } from '@mikro-orm/core';
-import { BaseEntity } from './base-entity';
-import { UserEntity } from './user-entity';
-import { EventEntity } from './event-entity';
+import { BaseEntity, UserEntity, EventEntity } from './index';
 
 @Entity()
 export class VoteEntity extends BaseEntity {
