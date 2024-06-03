@@ -11,12 +11,12 @@ export class VoteEntity extends BaseEntity {
   user: UserEntity;
 
   @Enum()
-  vote_type: VoteTypeValues;
+  type: VoteTypeValues;
 
-  constructor(event: EventEntity, user: UserEntity, vote_type: VoteTypeValues) {
+  constructor(event: EventEntity, user: UserEntity, type: VoteTypeValues) {
     super();
     this.event = event;
     this.user = user;
-    this.vote_type = vote_type;
+    this.type = type;
   }
 }
