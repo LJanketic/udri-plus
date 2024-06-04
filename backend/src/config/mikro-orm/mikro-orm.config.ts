@@ -1,4 +1,5 @@
 import { defineConfig } from '@mikro-orm/postgresql';
+import { Migrator } from '@mikro-orm/migrations';
 import {
   BaseEntity,
   UserEntity,
@@ -12,6 +13,7 @@ import config, { Config } from '../../config';
 const { database }: Config = config(process.env);
 
 export default defineConfig({
+  extensions: [Migrator],
   entities: [
     BaseEntity,
     UserEntity,
@@ -27,6 +29,6 @@ export default defineConfig({
   port: database.dbPort,
   debug: true,
   migrations: {
-    path: '../../migrations',
+    path: './src/migrations',
   },
 });
