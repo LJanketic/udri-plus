@@ -7,13 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint --fix src/**/*.ts",
-    "start:dev": "nodemon src/index.ts"
+    "start:dev": "nodemon src/index.ts",
+    "migration:create": "mikro-orm migration:create",
+    "migration:up": "mikro-orm migration:up",
+    "migration:down": "mikro-orm migration:down"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@mikro-orm/cli": "6.2.5",
     "@mikro-orm/core": "6.2.5",
+    "@mikro-orm/migrations": "6.2.5",
     "@mikro-orm/postgresql": "6.2.5",
     "@types/node": "20.12.11",
     "@typescript-eslint/eslint-plugin": "7.8.0",

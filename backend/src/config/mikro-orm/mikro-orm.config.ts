@@ -26,4 +26,7 @@ export default defineConfig({
   host: database.dbHost,
   port: database.dbPort,
   debug: true,
+  migrations: {
+    path: '../../migrations',
+  },
 });
