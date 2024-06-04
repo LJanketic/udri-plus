@@ -1,5 +1,6 @@
-import { Entity, Property, ManyToOne } from '@mikro-orm/core';
+import { Entity, Enum, ManyToOne } from '@mikro-orm/core';
 import { BaseEntity, UserEntity } from './index';
+import { StatusTypeValues } from '../types';
 
 @Entity()
 export class FriendEntity extends BaseEntity {
@@ -9,11 +10,10 @@ export class FriendEntity extends BaseEntity {
   @ManyToOne(() => UserEntity)
   friend: UserEntity;
 
-  // TODO: status should be enum with its own type
-  @Property()
-  status: string;
+  @Enum()
+  status: StatusTypeValues;
 
-  constructor(user: UserEntity, friend: UserEntity, status: string) {
+  constructor(user: UserEntity, friend: UserEntity, status: StatusTypeValues) {
     super();
     this.user = user;
     this.friend = friend;
