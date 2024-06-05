@@ -1,5 +1,6 @@
-import { Entity, Property, ManyToOne, OneToMany } from '@mikro-orm/core';
+import { Entity, Property, Enum, ManyToOne, OneToMany } from '@mikro-orm/core';
 import { BaseEntity, UserEntity, VoteEntity, EventDetailEntity } from './index';
+import { EventTypeValues } from '../types';
 
 @Entity()
 export class EventEntity extends BaseEntity {
@@ -9,9 +10,8 @@ export class EventEntity extends BaseEntity {
   @Property()
   title: string;
 
-  // TODO: Type should be of type enum with a predefined type
-  @Property()
-  type: string;
+  @Enum()
+  type: EventTypeValues;
 
   @OneToMany(() => VoteEntity, (vote) => vote.event)
   votes = new Array<VoteEntity>();
@@ -19,7 +19,7 @@ export class EventEntity extends BaseEntity {
   @OneToMany(() => EventDetailEntity, (detail) => detail.event)
   details = new Array<EventDetailEntity>();
 
-  constructor(creator: UserEntity, title: string, type: string) {
+  constructor(creator: UserEntity, title: string, type: EventTypeValues) {
     super();
     this.creator = creator;
     this.title = title;
