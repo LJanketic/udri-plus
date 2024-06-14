@@ -2,11 +2,11 @@ import { defineConfig } from '@mikro-orm/postgresql';
 import { Migrator } from '@mikro-orm/migrations';
 import {
   BaseEntity,
-  UserEntity,
-  EventEntity,
-  EventDetailEntity,
-  VoteEntity,
-  FriendEntity,
+  User,
+  Event,
+  EventDetails,
+  Vote,
+  Friend,
 } from '../../entities';
 import config, { Config } from '../../config';
 
@@ -14,14 +14,7 @@ const { database }: Config = config(process.env);
 
 export default defineConfig({
   extensions: [Migrator],
-  entities: [
-    BaseEntity,
-    UserEntity,
-    EventEntity,
-    EventDetailEntity,
-    VoteEntity,
-    FriendEntity,
-  ],
+  entities: [BaseEntity, User, Event, EventDetails, Vote, Friend],
   dbName: database.dbName,
   user: database.dbUser,
   password: database.dbPwd,
