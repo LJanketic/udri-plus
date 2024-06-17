@@ -12,3 +12,8 @@ part of this application.
 - Run `docker-compose up -d`
 - Run `npm run start:dev`
 - That is all for now
+
+### Client
+- You already clone this github repository
+- Run `npm install` in the client directory
+- Run `npm start`
