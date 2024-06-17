@@ -1,10 +1,10 @@
 import { Entity, Property, ManyToOne } from '@mikro-orm/core';
-import { BaseEntity, EventEntity } from './index';
+import { BaseEntity, Event } from './index';
 
 @Entity()
-export class EventDetailEntity extends BaseEntity {
-  @ManyToOne(() => EventEntity)
-  event: EventEntity;
+export class EventDetails extends BaseEntity {
+  @ManyToOne(() => Event)
+  event: Event;
 
   @Property()
   start_time: Date;
@@ -20,7 +20,7 @@ export class EventDetailEntity extends BaseEntity {
   details: Record<string, any>;
 
   constructor(
-    event: EventEntity,
+    event: Event,
     start_time: Date,
     duration: string,
     location: string,
