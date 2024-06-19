@@ -41,7 +41,8 @@
         "varsIgnorePattern": "^_",
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "eol-last": ["error", "always"]
   },
   "settings": {
     "react": {
